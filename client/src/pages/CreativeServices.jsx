@@ -27,13 +27,13 @@ const CreativeServices = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6 text-center">Creative Services</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">Творческие услуги</h1>
       <div className="flex"> 
         {campaigns.length === 0 ? (
           <div>No campaigns found.</div> 
         ) : (
           <AllCampaigns
-          campaigns={campaigns.filter((campaign) => campaign.category === 'Поиск')}
+          campaigns={campaigns.filter((campaign) => campaign.category === 'Творческие услуги')}
           />
         )}
       </div>

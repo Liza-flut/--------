@@ -85,7 +85,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
           onClick={handlePrevious}
           disabled={startIndex === 0}
         >
-          <FaChevronLeft />
+          <FaChevronLeft size={25} />
         </button>
 
         <div className="flex flex-wrap justify-center gap-[24px] w-full overflow-x-hidden">
@@ -111,7 +111,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
           onClick={handleNext}
           disabled={startIndex + pageSize >= campaigns.length}
         >
-          <FaChevronRight />
+          <FaChevronRight size={25} />
         </button>
       </div>
       <div className="flex justify-center mt-[14px]">

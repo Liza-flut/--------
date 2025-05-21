@@ -1,4 +1,4 @@
-// вход с регистрацией и поисковик (metamask тут)
+// вход с регистрацией и поисковик
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ConnectWallet } from "@thirdweb-dev/react";
@@ -24,8 +24,8 @@ const Navbar = ({ setSearchQuery }) => {
 
   const handleSearch = () => {
     setSearchQuery(searchInput.trim());
-    setSearchInput(""); // Clear search input
-    setSuggestedCampaigns([]); // Clear suggested campaigns
+    setSearchInput(""); 
+    setSuggestedCampaigns([]); 
     navigate("/SearchCampaigns");
   };
 
@@ -35,7 +35,6 @@ const Navbar = ({ setSearchQuery }) => {
     }
   };
 
-  // Fetch campaigns for suggestions
   useEffect(() => {
     const fetchCampaigns = async () => {
       const data = await getCampaigns();
@@ -45,14 +44,12 @@ const Navbar = ({ setSearchQuery }) => {
     fetchCampaigns();
   }, [getCampaigns]);
 
-  // Clear the search input when the route changes, except on the SearchCampaigns page
   useEffect(() => {
     if (location.pathname !== "/SearchCampaigns") {
       setSearchInput("");
     }
   }, [location.pathname]);
 
-  // Filter suggested campaigns based on search input
   useEffect(() => {
     if (searchInput) {
       const filtered = allCampaigns.filter(
@@ -98,7 +95,7 @@ const Navbar = ({ setSearchQuery }) => {
                 className="p-2 hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer"
                 onClick={() => {
                   navigate(`/campaign-details/${campaign.id}`, { state: campaign });
-                  setSearchInput(""); // Clear search input after selecting a suggestion
+                  setSearchInput(""); 
                 }}
               >
                 {campaign.title} - <i>{campaign.category}</i>
@@ -125,7 +122,6 @@ const Navbar = ({ setSearchQuery }) => {
         />
       </div>
 
-      {/* Small screen navigation */}
       <div className="sm:hidden flex justify-between items-center relative">
         <div className="w-[40px] h-[40px] rounded-[10px] flex justify-center items-center cursor-pointer">
           <img

@@ -28,7 +28,7 @@ const ArtsAndCulture = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6 text-center">Arts And Culture</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">Искусство и культура</h1>
       <div className="flex"> 
         {campaigns.length === 0 ? (
           <div>No campaigns found.</div> 

@@ -13,13 +13,21 @@ const Home = () => {
 
   const fetchCampaigns = async () => {
     setIsLoading(true);
-    const data = await getCampaigns();
-    setCampaigns(data);
-    setIsLoading(false);
+    try {
+      const data = await getCampaigns();
+      setCampaigns(data);
+    } catch (error) {
+      console.error("Ошибка при загрузке кампаний:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
-    if (contract) fetchCampaigns();
+    // Даже если контракт моковый, он есть — вызываем fetchCampaigns
+    if (contract) {
+      fetchCampaigns();
+    }
   }, [address, contract]);
 
   return (

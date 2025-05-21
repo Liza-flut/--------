@@ -14,7 +14,6 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Кнопка гамбургера */}
       <button 
         onClick={toggleSidebar} 
         className="fixed top-4 left-4 z-50 p-2 rounded-md bg-gray-200 hover:bg-gray-300"
@@ -23,7 +22,6 @@ const Sidebar = () => {
         {isOpen ? <IoClose size={24} /> : <HiMenu size={24} />}
       </button>
 
-      {/* Панель */}
       <div
         className={`fixed top-0 left-0 h-full bg-white shadow-lg rounded-r-lg
           transition-transform duration-300 ease-in-out
@@ -45,7 +43,7 @@ const Sidebar = () => {
                   if (!link.disabled) {
                     setIsActive(link.name);
                     navigate(link.link);
-                    setIsOpen(false); // Закрыть панель при выборе
+                    setIsOpen(false); 
                   }
                 }}
               >
@@ -57,7 +55,6 @@ const Sidebar = () => {
         </nav>
       </div>
 
-      {/* Полупрозрачный фон при открытой панели */}
       {isOpen && (
         <div
           onClick={toggleSidebar}
